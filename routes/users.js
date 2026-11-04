@@ -16,11 +16,15 @@ module.exports = function (router) {
         }
     });
     userRoute.post(async function (req, res) {
-        // var connectionString = process.env.TOKEN;
-        // res.json({ message: 'My connection string is ' + connectionString });
         try {
+            const {name, email} = req.body;
+            const newUser = new User({
+                name: name,
+                email: email
+            });
 
-            const newUser = new User()
+            await newUser.save();
+
             res.status(201).json({
                 message: "OK",
                 data: {
