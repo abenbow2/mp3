@@ -8,3 +8,4 @@ https://opensource.com/article/22/7/javascript-api-express
 
 **ROUTING**
 https://www.geeksforgeeks.org/web-tech/express-js-router-route-function/
+https://stackoverflow.com/questions/45827849/react-inserting-variable-into-route-path 

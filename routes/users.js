@@ -1,6 +1,9 @@
+const userschema = require('../models/user.js');
+
 module.exports = function (router) {
 
     var userRoute = router.route('/users');
+    var userID = router.route('/users/:id');
 
     userRoute.get(async function (req, res) {
         // var connectionString = process.env.TOKEN;
@@ -10,6 +13,55 @@ module.exports = function (router) {
             res.status(200).json(allUser);
         } catch (error) {
             res.status(400).json({ message: error.message });
+        }
+    });
+    userRoute.post(async function (req, res) {
+        // var connectionString = process.env.TOKEN;
+        // res.json({ message: 'My connection string is ' + connectionString });
+        try {
+
+            const newUser = new User()
+            res.status(201).json({
+                message: "OK",
+                data: {
+                    _id: newUser.id,
+                    email: newUser.email,
+                    name: newUser.name,
+                    dateCreated: newUser.dateCreated
+                }
+            });
+        } catch (error) {
+            res.status(500).json({ message: error.message, data: {} });
+        }
+    });
+
+    userID.get(async function (req, res) {
+        // var connectionString = process.env.TOKEN;
+        // res.json({ message: 'My connection string is ' + connectionString });
+        try {
+            res.status(200);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    });
+
+    userID.put(async function (req, res) {
+        // var connectionString = process.env.TOKEN;
+        // res.json({ message: 'My connection string is ' + connectionString });
+        try {
+            res.status(200);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+    });
+
+    userID.delete(async function (req, res) {
+        // var connectionString = process.env.TOKEN;
+        // res.json({ message: 'My connection string is ' + connectionString });
+        try {
+            res.status(200);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
         }
     });
 
