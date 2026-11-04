@@ -1,4 +1,4 @@
-const userschema = require('../models/user.js');
+const User = require('../models/user');
 
 module.exports = function (router) {
 
@@ -10,9 +10,9 @@ module.exports = function (router) {
         // res.json({ message: 'My connection string is ' + connectionString });
         try {
             const allUser = await User.find({});
-            res.status(200).json(allUser);
+            res.status(200).json({message: "OK", data: allUser});
         } catch (error) {
-            res.status(400).json({ message: error.message });
+            res.status(400).json({ message: error.message, data: {} });
         }
     });
     userRoute.post(async function (req, res) {
