@@ -34,3 +34,8 @@ require('./routes')(app, router);
 // Start the server
 app.listen(port);
 console.log('Server running on port ' + port);
+
+// Test?
+app.get('/', (req, res) => {
+    res.send('Server is running perfectly!');
+});
