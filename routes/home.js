@@ -4,7 +4,8 @@ module.exports = function (router) {
 
     homeRoute.get(function (req, res) {
         var connectionString = process.env.TOKEN;
-        res.send('Server is running perfectly!').json({ message: 'My connection string is ' + connectionString });
+        res.json({ message: 'My connection string is ' + connectionString });
+        res.send('Server is running perfectly!');
     });
 
     return router;
